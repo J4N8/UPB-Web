@@ -4,9 +4,9 @@
 class Product
 {
     //Properties
-    public $name;
-    public $description;
-    public $price;
+    private $name;
+    private $description;
+    private $price;
 
     //Constructor
     public function __construct($name, $description, $price)
