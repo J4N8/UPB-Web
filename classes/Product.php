@@ -15,4 +15,9 @@ class Product
         $this->description = $description;
         $this->price = $price;
     }
+
+    public function __toString(): string
+    {
+        return $this->name." ; ".$this->price." ; ".$this->description;
+    }
 }
