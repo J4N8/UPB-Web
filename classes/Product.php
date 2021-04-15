@@ -18,6 +18,6 @@ class Product
 
     public function __toString(): string
     {
-        return $this->name." ; ".$this->price." ; ".$this->description;
+        return $this->name." ; ".$this->description." ; ".$this->price;
     }
 }

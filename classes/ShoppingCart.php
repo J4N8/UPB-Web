@@ -15,4 +15,11 @@ class ShoppingCart
         $this->current_price = $current_price;
         $this->product = $product;
     }
+
+    public function __toString(): string
+    {
+        return $this->date." ; ".$this->current_price." ; ".$this->product;
+    }
+
+
 }
