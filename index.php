@@ -18,15 +18,9 @@ $products = Database::selectAllProducts();
 foreach ($products as $product){
     $product = explode(" ; ", $product);
     echo '<tr>';
-    echo '<th>';
-    echo $product[0];
-    echo '</th>';
-    echo '<th>';
-    echo $product[1];
-    echo '</th>';
-    echo '<th>';
-    echo $product[2]."€";
-    echo '</th>';
+    echo '<th>'.$product[0].'</th>';
+    echo '<th>'.$product[1].'</th>';
+    echo '<th>'.$product[2]."€".'</th>';
     echo '</tr>';
 }
 echo '</table>';
