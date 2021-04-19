@@ -42,12 +42,28 @@ class Database
         $result = pg_query(self::connection(), "SELECT p.name, COUNT(sc.id) FROM products p INNER JOIN \"shoppingCarts\" sC on p.id = sC.product_id WHERE bought = TRUE GROUP BY p.name;");
         //Loop through query results
         $x = 0;
-        while ($row = pg_fetch_row($result)){
-            $item = $row[0]." ; ".$row[1];
+        while ($row = pg_fetch_row($result)) {
+            $item = $row[0] . " ; " . $row[1];
             $List[$x] = $item;
             $x++;
         }
         pg_close();
         return $List;
+    }
+
+    //Returns all products as array
+    static function selectProductCount()
+    {
+        $products = array();
+        $result = pg_query(self::connection(), "SELECT name, product_count FROM categories GROUP BY name, product_count;");
+        //Loop through query results
+        $x = 0;
+        while ($row = pg_fetch_row($result)) {
+            $product = array($row[0], $row[1]);
+            $products[$x] = $product;
+            $x++;
+        }
+        pg_close();
+        return $products;
     }
 }
