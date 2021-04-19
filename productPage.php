@@ -23,11 +23,12 @@ $dataPoints = array(
     include 'head.php';
     ?>
 
+    <script type="text/javascript" src="canvasjs.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
-                exportEnabled: true,
+                exportEnabled: false,
                 theme: "light1", // "light1", "light2", "dark1", "dark2"
                 title: {
                     text: "Products"
@@ -51,8 +52,6 @@ $dataPoints = array(
 <body>
 
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js%22%3E</script>
-
 
 <!----->
 
