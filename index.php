@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <?php
-    include 'head.php';
-    ?>
-</head>
 <body>
-
+<h4>Select which stats you want to view:</h4>
+<?php
+include 'head.php';
+?>
 </body>
 </html>
