@@ -21,4 +21,19 @@ class Database
         pg_close();
         return $products;
     }
+
+    static function selectCategoryStats(){
+        $statsList = array();
+        $result = pg_query(self::connection(), "SELECT c.name, COUNT(p.id) FROM products p INNER JOIN categories c ON p.category_id = c.id GROUP BY c.name;");
+        //Loop through query results
+        $x = 0;
+        while ($row = pg_fetch_row($result)){
+
+            $stats = $row[0]." ; ".$row[1];
+            $statsList[$x] = $stats;
+            $x++;
+        }
+        pg_close();
+        return $statsList;
+    }
 }
