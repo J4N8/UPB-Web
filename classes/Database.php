@@ -21,4 +21,33 @@ class Database
         pg_close();
         return $products;
     }
+
+    static function selectCategoryStats(){
+        $statsList = array();
+        $result = pg_query(self::connection(), "SELECT c.name, COUNT(p.id) FROM products p INNER JOIN categories c ON p.category_id = c.id GROUP BY c.name;");
+        //Loop through query results
+        $x = 0;
+        while ($row = pg_fetch_row($result)){
+
+            $stats = $row[0]." ; ".$row[1];
+            $statsList[$x] = $stats;
+            $x++;
+        }
+        pg_close();
+        return $statsList;
+    }
+
+    static function selectBoughtProducts(){
+        $List = array();
+        $result = pg_query(self::connection(), "SELECT p.name, COUNT(sc.id) FROM products p INNER JOIN \"shoppingCarts\" sC on p.id = sC.product_id WHERE bought = TRUE GROUP BY p.name;");
+        //Loop through query results
+        $x = 0;
+        while ($row = pg_fetch_row($result)){
+            $item = $row[0]." ; ".$row[1];
+            $List[$x] = $item;
+            $x++;
+        }
+        pg_close();
+        return $List;
+    }
 }
