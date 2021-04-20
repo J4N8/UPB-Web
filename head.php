@@ -3,6 +3,7 @@ require_once 'classes/Database.php';
 require_once 'classes/Product.php';
 require_once 'classes/ShoppingCart.php';
 ?>
+<link rel="stylesheet" href="style.css">
 <table>
     <tr>
         <th><a href="productPage.php">Products</a></th>

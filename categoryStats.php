@@ -6,8 +6,9 @@
     ?>
 </head>
 <body>
+<div class="table-wrapper">
 <?php //List all products in table
-echo '<table border="1px">';
+echo '<table class="fl-table">';
 echo '<tr>';
 echo '<th>Name: </th>';
 echo '<th>Products: </th>';
@@ -22,5 +23,6 @@ foreach ($stats as $stat){
 }
 echo '</table>';
 ?>
+</div>
 </body>
 </html>
